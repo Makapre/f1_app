@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:connectivity/connectivity.dart';
 
-void main() {
-  runApp(MyApp());
-}
+void main() => runApp(MyApp());
 
-Map<int, Color> f1_color = {
+Map<int, Color> f1Color = {
   50:Color.fromRGBO(225,6,0, .1),
   100:Color.fromRGBO(225,6,0, .2),
   200:Color.fromRGBO(225,6,0, .3),
@@ -17,7 +16,7 @@ Map<int, Color> f1_color = {
   900:Color.fromRGBO(225,6,0, 1),
 };
 
-MaterialColor main_color = MaterialColor(0xFFE10600, f1_color);
+MaterialColor mainColor = MaterialColor(0xFFE10600, f1Color);
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -35,13 +34,13 @@ class MyApp extends StatelessWidget {
         // or simply save your changes to "hot reload" in a Flutter IDE).
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
-        primarySwatch: main_color,
+        primarySwatch: mainColor,
         // This makes the visual density adapt to the platform that you run
         // the app on. For desktop platforms, the controls will be smaller and
         // closer together (more dense) than on mobile platforms.
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: MyHomePage(title: 'Counter'),
     );
   }
 }
@@ -65,7 +64,9 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  // variables
   int _counter = 0;
+  bool isInternetOn = true;
 
   void _incrementCounter() {
     setState(() {
@@ -76,6 +77,12 @@ class _MyHomePageState extends State<MyHomePage> {
       // called again, and so nothing would appear to happen.
       _counter++;
     });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    getConnect(); // calls getconnect method to check which type if connection it
   }
 
   @override
@@ -92,7 +99,31 @@ class _MyHomePageState extends State<MyHomePage> {
         // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
       ),
-      body: Center(
+      body: isInternetOn
+          ? connected()
+          : notConnected(),
+      floatingActionButton: FloatingActionButton(
+        onPressed: _incrementCounter,
+        tooltip: 'Increment',
+        child: Icon(Icons.add),
+      ), // This trailing comma makes auto-formatting nicer for build methods.
+    );
+  }
+
+  Center notConnected() {
+    return Center(
+      child: Column(
+        children: <Widget>[
+          Text(
+            "No Internet"
+            ),
+        ]
+      ),
+    );
+  }
+
+  Center connected() {
+    return Center(
         // Center is a layout widget. It takes a single child and positions it
         // in the middle of the parent.
         child: Column(
@@ -121,12 +152,19 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
           ],
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
-    );
+      );
+    }
+
+  void getConnect() async {
+    var connectivityResult = await (Connectivity().checkConnectivity());
+    if (connectivityResult == ConnectivityResult.none) {
+      setState(() {
+        isInternetOn = false;
+      });
+    } else {
+      setState(() {
+        isInternetOn = true;
+      });
+    }
   }
 }
