@@ -44,9 +44,9 @@
 ## Miscellaneous
 - [ ] Posts
 - [ ] JSON handling
-- [ ] Check for Internet
-	- [ ] Normal Screen
-	- [ ] Screen for internet required
+- [x] Check for Internet
+	- [x] Normal Screen
+	- [x] Screen for internet required
 - [ ] Maybe saving data online and updating if different
 - [x] Flutter
 - [ ] Splashscreen Icon
