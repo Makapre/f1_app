@@ -33,7 +33,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
               ),
             ],
           ),
-          color: Colors.blueGrey,
+          color: Colors.grey
         ),
       ]
     );
@@ -55,12 +55,12 @@ class _DashboardWidgetState extends State<DashboardWidget> {
     var day = now.day.toString();
     var today = DateTime.parse('$year-$month-$day');
 
-    var nextRace = DateTime.parse(nextRaceDate);
-    int difference = today == nextRace ? 0 : (nextRace.difference(today).inDays);
+    var nextRacedate = DateTime.parse(nextRaceDate);
+    int difference = today == nextRacedate ? 0 : (nextRacedate.difference(today).inDays);
 
     return RichText(
       text: TextSpan(
-        text: 'Näschtes Rennen ',
+        text: 'Nächstes Rennen ',
         style: TextStyle(
           color: Colors.white
         ),
