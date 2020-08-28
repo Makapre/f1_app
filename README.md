@@ -27,9 +27,9 @@
 		- [ ] Click for driver details
 	- [ ] Constructors
 		- [ ] Click for constructor details
-	- [ ] Settings
-		- [ ] Selection for the Year (from first to current)
-- Current Season as Top Indicator
+	- [ ] (Settings)
+		- [ ] (Selection for the Year (from first to current))
+- [x] Current Season as Top Indicator
 
 ## Data
 - [ ] Driver Standings
@@ -43,7 +43,7 @@
 
 ## Miscellaneous
 - [ ] Posts
-- [ ] JSON handling
+- [x] JSON handling
 - [x] Check for Internet
 	- [x] Normal Screen
 	- [x] Screen for internet required
