@@ -1,3 +1,4 @@
+import 'package:f1_app/main.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
@@ -24,18 +25,64 @@ class _DashboardWidgetState extends State<DashboardWidget> {
   Widget build(BuildContext context) {
     return Wrap(
       children: [
-        Card(
-          child: Column(
+        Container(
+          child: titleCard()
+        ),
+        Container(
+          child: Row(
             children: <Widget>[
-              ListTile(
-                title: new Center(child: daysUntil()),
-                subtitle: new Center(child: nextRaceTitle(nextRaceName)),
+              Expanded(
+                flex: 2,
+                child: Card(
+                  child: titleCard(),
+                  color: mainColor
+                )
+              ),
+              Expanded(
+                flex: 2,
+                child: Card(
+                  child: titleCard(),
+                  color: mainColor
+                )
               ),
             ],
-          ),
-          color: Colors.grey
+          )
         ),
+        Container(
+          child: Row(
+            children: <Widget>[
+              Expanded(
+                flex: 2,
+                child: Card(
+                  child: titleCard(),
+                  color: mainColor
+                )
+              ),
+              Expanded(
+                flex: 2,
+                child: Card(
+                  child: titleCard(),
+                  color: mainColor
+                )
+              ),
+            ],
+          )
+        )
       ]
+    );
+  }
+
+  Widget titleCard() {
+    return Card(
+      child: Column(
+        children: <Widget>[
+          ListTile(
+            title: new Center(child: daysUntil()),
+            subtitle: new Center(child: nextRaceTitle(nextRaceName)),
+          )
+        ],
+      ),
+      color: Colors.grey
     );
   }
 
@@ -49,28 +96,22 @@ class _DashboardWidgetState extends State<DashboardWidget> {
   }
 
   Widget daysUntil() {
-    var now = new DateTime.now().toUtc();
+    var now = new DateTime.now().toLocal();
     var nextRacedate = DateTime.parse(nextRaceDate);
-    int differenceDays = nextRacedate.difference(now).inDays;
-    int differenceHours = nextRacedate.difference(now).inHours - differenceDays*24;
+    var difference = nextRacedate.difference(now);
+    int differenceDays = difference.inDays;
+    int differenceHours = difference.inHours - (differenceDays*24);
+    int differenceMinutes = difference.inMinutes - differenceDays*1440 - differenceHours*60 + 1;
 
     return RichText(
       text: TextSpan(
-        text: 'Nächstes Rennen ',
-        style: TextStyle(
-          color: Colors.white
-        ),
-        // children: difference > 0 ? <TextSpan>[
-        //   TextSpan(text: 'in '),
-        //   TextSpan(text: '$difference', style: TextStyle(fontWeight: FontWeight.bold)),
-        //   TextSpan(text: ' Tagen'),
-        // ] : <TextSpan>[TextSpan(text: 'Heute')],
-        children: <TextSpan>[
-          TextSpan(text: 'in '),
+        children: difference.isNegative ? <TextSpan>[TextSpan(text: 'Jetzt')] : <TextSpan>[
           TextSpan(text: '$differenceDays', style: TextStyle(fontWeight: FontWeight.bold)),
-          TextSpan(text: ' Tagen & '),
+          TextSpan(text: ' Tagen '),
           TextSpan(text: '$differenceHours', style: TextStyle(fontWeight: FontWeight.bold)),
-          TextSpan(text: ' Stunden'),
+          TextSpan(text: ' Stunden '),
+          TextSpan(text: '$differenceMinutes', style: TextStyle(fontWeight: FontWeight.bold)),
+          TextSpan(text: ' Minuten'),
         ],
       )
     );
