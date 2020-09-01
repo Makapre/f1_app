@@ -17,6 +17,7 @@ class _StartPageState extends State<StartPage> {
   // variables
   bool isInternetOn = true;
   int _currentIndex = 0;
+  String year = new DateTime.now().year.toString();
   String title = 'F1';
 
   final List<Widget> _pages = [
@@ -84,32 +85,23 @@ class _StartPageState extends State<StartPage> {
 
   void getConnect() async {
     var connectivityResult = await (Connectivity().checkConnectivity());
-    if (connectivityResult == ConnectivityResult.none) {
-      setState(() {
-        isInternetOn = false;
-      });
-    } else {
-      setState(() {
+    setState(() {
+      if (connectivityResult == ConnectivityResult.none) {
+          isInternetOn = false;
+      } else {
         isInternetOn = true;
-      });
-    }
+      }
+    });
   }
 
   void getCurrentSeason() async {
     final response = await http.get('http://ergast.com/api/f1/current.json');
-    String currentSeason;
-
-    if (response.statusCode == 200) {
-      currentSeason = fromJsonGetSeason(json.decode(response.body));
-    } else {
-      String year = new DateTime.now().year.toString();
-      currentSeason = fromJsonGetSeason(
-        json.decode('{ "MRData": { "RaceTable": { "season": "$year" } } }')
-      );
-    }
 
     setState(() {
-      title = 'F1 $currentSeason';
+      if (response.statusCode == 200) {
+        String currentSeason = fromJsonGetSeason(json.decode(response.body));
+        title = 'F1 $currentSeason';
+      }
     });
   }
 
