@@ -126,7 +126,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
       nextRacename = json.decode(response.body)['MRData']['RaceTable']['Races'][0]['raceName'];
       nextRacecity = json.decode(response.body)['MRData']['RaceTable']['Races'][0]['Circuit']['Location']['locality'];
     } else {
-      nextRacename = json.decode('{ "MRData": { "RaceTable": { "Race": ["raceName": "next Race"] } } }')['MRData']['RaceTable']['Races'][0]['raceName'];
+      nextRacename = "Next Race";
       nextRacecity = "Unknown";
     }
 
