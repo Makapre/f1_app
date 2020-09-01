@@ -1,6 +1,8 @@
 # F1 App
 - [API](http://ergast.com/mrd/)
 
+![Dart CI](https://github.com/Makapre/f1_app/workflows/Dart%20CI/badge.svg?branch=dev)
+
 ## Idea
 - 4 Tabs
 	- [ ] Dashboard
