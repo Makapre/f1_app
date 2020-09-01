@@ -1,7 +1,7 @@
 # F1 App
 - [API](http://ergast.com/mrd/)
 
-![Dart CI](https://github.com/Makapre/f1_app/workflows/Dart%20CI/badge.svg?branch=dev)
+![Flutter CI](https://github.com/Makapre/f1_app/workflows/Flutter%20CI/badge.svg)
 
 ## Idea
 - 4 Tabs
