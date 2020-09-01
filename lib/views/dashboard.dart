@@ -147,7 +147,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
       String year = new DateTime.now().year.toString();
       String month = new DateTime.now().month.toString();
       String day = new DateTime.now().day.toString();
-      nextRacedate = json.decode('{ "MRData": { "RaceTable": { "Race": ["date": "$year-$month-$day"] } } }')['MRData']['RaceTable']['Races'][0]['date'];
+      nextRacedate = "$year-$month-$day";
       nextRacetime = "00:00:00Z";
     }
 
