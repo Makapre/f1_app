@@ -60,9 +60,9 @@ class _DashboardWidgetState extends State<DashboardWidget> {
       child: Column(
         children: <Widget>[
           ListTile(
+            leading: new Text("Fahrer", style: TextStyle(fontWeight: FontWeight.bold)),
             title: new Column(
               children: <Widget>[
-                new Text("Driver Standings", style: TextStyle(fontWeight: FontWeight.bold)),
                 new Text(firstDriver),
                 new Text(secondDriver),
                 new Text(thirdDriver)
@@ -80,9 +80,9 @@ class _DashboardWidgetState extends State<DashboardWidget> {
       child: Column(
         children: <Widget>[
           ListTile(
+            leading: new Text("Teams", style: TextStyle(fontWeight: FontWeight.bold)),
             title:  new Column(
               children: <Widget>[
-                new Text("Constructor Standings", style: TextStyle(fontWeight: FontWeight.bold)),
                 new Text(firstConstructor),
                 new Text(secondConstructor),
                 new Text(thirdConstructor)
@@ -100,8 +100,8 @@ class _DashboardWidgetState extends State<DashboardWidget> {
       child: Column(
         children: <Widget>[
           ListTile(
-            title: new Center(child: new Icon(Icons.arrow_forward_ios)),
-            subtitle: new Center(child: Text("Upcoming Races")),
+            leading: new Icon(Icons.arrow_forward_ios),
+            title: Text("Nächste Rennen", textAlign: TextAlign.center, style: TextStyle(fontWeight: FontWeight.bold)),
           )
         ],
       ),
@@ -114,8 +114,8 @@ class _DashboardWidgetState extends State<DashboardWidget> {
       child: Column(
         children: <Widget>[
           ListTile(
-            title: new Center(child: new Icon(Icons.arrow_back_ios)),
-            subtitle: new Center(child: Text("Past Races")),
+            leading: new Icon(Icons.arrow_back_ios),
+            title: Text("Letzte Rennen", textAlign: TextAlign.center, style: TextStyle(fontWeight: FontWeight.bold)),
           )
         ],
       ),
