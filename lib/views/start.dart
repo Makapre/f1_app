@@ -23,7 +23,7 @@ class _StartPageState extends State<StartPage> {
   final List<Widget> _pages = [
     DashboardWidget(),
     DriversWidget(),
-    ConstructorsWidget(Colors.green)
+    ConstructorsWidget()
   ];
 
   @override

@@ -17,7 +17,6 @@ class _DriversWidgetState extends State<DriversWidget> {
   void initState() {
     super.initState();
     getDriversList();
-    titleCard();
   }
 
   @override
@@ -35,23 +34,10 @@ class _DriversWidgetState extends State<DriversWidget> {
         final driver = drivers[index];
 
         return ListTile(
-          title: driver.buildDriver(context)
+          title: driver.buildDriver(context),
         );
       },
     ) : Text("Keine Fahrer zu kriegen");
-  }
-
-  Widget titleCard() {
-    return Card(
-      child: Column(
-        children: <Widget>[
-          ListTile(
-            title: Text("Fahrer", textAlign: TextAlign.center,)
-          )
-        ],
-      ),
-      color: Colors.grey
-    );
   }
 
   void getDriversList() async {
@@ -60,7 +46,7 @@ class _DriversWidgetState extends State<DriversWidget> {
     setState(() {
       if (response.statusCode == 200) {
         var allDrivers = json.decode(response.body)['MRData']['DriverTable']['Drivers'];
-        allDrivers.forEach((driver) => drivers.add(new Driver(driver['givenName'], driver['familyName'], driver['permanentNumber'])));
+        allDrivers.forEach((driver) => drivers.add(new Driver(driver['givenName'], driver['familyName'], driver['permanentNumber'], driver['driverId'], driver['dateOfBirth'], driver['nationality'])));
       }
     });
   }
