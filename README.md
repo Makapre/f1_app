@@ -1,4 +1,5 @@
 # F1 App
+
 - [API](http://ergast.com/mrd/)
 
 ![Flutter CI](https://github.com/Makapre/f1_app/workflows/Flutter%20CI/badge.svg)
@@ -6,12 +7,12 @@
 ## Idea
 - 4 Tabs
 	- [ ] Dashboard
-		- [ ] Topbar for upcoming race weekend w/ days until
-		- [ ] Cards
-			- [ ] Driver Standings
-			- [ ] Constructor Standings
-			- [ ] Upcoming Races
-			- [ ] Past Races
+		- [x] Topbar for upcoming race weekend w/ days until
+		- [x] Cards
+			- [x] Driver Standings
+			- [x] Constructor Standings
+			- [x] Upcoming Races
+			- [x] Past Races
 		- [ ] Driver Standings
 			- [ ] Click for driver details
 		- [ ] Constructor Standings
@@ -24,11 +25,13 @@
 					- [ ] Sessions w/ Top 3
 						- [ ] Click on Session
 							- [ ] Table
-							
+
 	- [ ] Drivers
-		- [ ] Click for driver details
+		- [x] Click for driver details
+		- [ ] Details view
 	- [ ] Constructors
-		- [ ] Click for constructor details
+		- [x] Click for constructor details
+		- [ ] Details view
 	- [ ] (Settings)
 		- [ ] (Selection for the Year (from first to current))
 - [x] Current Season as Top Indicator
@@ -44,12 +47,12 @@
 - [ ] Constructors
 
 ## Miscellaneous
-- [ ] Posts
+- [x] Posts
 - [x] JSON handling
 - [x] Check for Internet
 	- [x] Normal Screen
 	- [x] Screen for internet required
 - [ ] Maybe saving data online and updating if different
 - [x] Flutter
-- [ ] Splashscreen Icon
-- [ ] App Icon
+- [x] Splashscreen Icon
+- [x] App Icon

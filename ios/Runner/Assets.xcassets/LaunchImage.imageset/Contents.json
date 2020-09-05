@@ -74,18 +74,6 @@
       ],
       "idiom" : "universal",
       "scale" : "3x"
-    },
-    {
-      "filename" : "LaunchImage@2x.png",
-      "idiom" : "universal",
-      "scale" : "2x",
-      "unassigned" : true
-    },
-    {
-      "filename" : "LaunchImage@3x.png",
-      "idiom" : "universal",
-      "scale" : "3x",
-      "unassigned" : true
     }
   ],
   "info" : {
