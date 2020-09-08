@@ -37,7 +37,12 @@ class _DriversWidgetState extends State<DriversWidget> {
           title: driver.buildDriver(context),
         );
       },
-    ) : Text("Keine Fahrer zu kriegen");
+    ) : Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            new CircularProgressIndicator()
+          ],
+        );
   }
 
   void getDriversList() async {

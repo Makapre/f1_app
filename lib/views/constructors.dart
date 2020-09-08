@@ -37,7 +37,12 @@ class _ConstructorsWidgetState extends State<ConstructorsWidget> {
           title: constructor.buildConstructor(context)
         );
       },
-    ) : Text("Keine Teams zu kriegen");
+    ) : Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            new CircularProgressIndicator()
+          ],
+        );
   }
 
   void getConstructorsList() async {

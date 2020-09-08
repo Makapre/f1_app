@@ -54,6 +54,7 @@ class _StartPageState extends State<StartPage> {
           Text(
             "Bitte überprüfe deine Internetverbindung."
             ),
+            new CircularProgressIndicator()
         ]
       ),
     );
