@@ -1,6 +1,6 @@
 # F1 App
 
-- [API](http://ergast.com/mrd/)
+Experimenting with Ergast Developer [API](http://ergast.com/mrd/) to develop an own Formula 1 stats application. 
 
 ![Flutter CI](https://github.com/Makapre/f1_app/workflows/Flutter%20CI/badge.svg)
 
